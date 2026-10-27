@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Лекарство от скуки</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg1:#ffd9c9;--bg2:#ffeaa8;--card:#fffaf5;--ink:#4a2c3a;--accent:#e85d84;--soft:#ffe0e8;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg1:#3a2030;--bg2:#2b2440;--card:#4a3042;--ink:#ffe9ef;--accent:#ff8aa8;--soft:#5d3a50;color-scheme:dark}}
+:root[data-theme="dark"]{--bg1:#3a2030;--bg2:#2b2440;--card:#4a3042;--ink:#ffe9ef;--accent:#ff8aa8;--soft:#5d3a50;color-scheme:dark}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;min-height:100%}
+body{font-family:'Fredoka','Nunito','Trebuchet MS',sans-serif;color:var(--ink);background:linear-gradient(160deg,var(--bg1),var(--bg2));background-attachment:fixed;display:flex;justify-content:center;overflow-x:hidden}
+main{width:100%;max-width:440px;padding:28px 20px 40px;text-align:center}
+h1{font-size:1.7rem;font-weight:600;margin:0 0 6px;line-height:1.2}
+.sub{margin:0 0 22px;opacity:.8}
+.stage{position:relative;background:var(--card);border-radius:36px;padding:26px 18px 22px;box-shadow:0 10px 0 var(--soft)}
+.bubble{min-height:74px;display:flex;align-items:center;justify-content:center;background:var(--soft);border-radius:22px;padding:12px 16px;font-size:1.12rem;line-height:1.35;position:relative;margin-bottom:22px}
+.bubble::after{content:"";position:absolute;bottom:-9px;left:50%;margin-left:-10px;border:10px solid transparent;border-bottom:0;border-top-color:var(--soft)}
+#bear{font-size:7.5rem;line-height:1;background:none;border:0;cursor:pointer;padding:0;user-select:none;transition:transform .15s}
+#bear.pop{animation:squish .45s}
+@keyframes squish{0%{transform:scale(1)}30%{transform:scale(1.18,.82) rotate(-4deg)}60%{transform:scale(.9,1.12) rotate(4deg)}100%{transform:scale(1)}}
+.count{margin:10px 0 0;font-size:.95rem;opacity:.75}
+.row{display:flex;gap:10px;margin-top:18px}
+.row button{flex:1;font:inherit;font-weight:600;font-size:1rem;color:#fff;background:var(--accent);border:0;border-radius:18px;padding:14px 10px;cursor:pointer;box-shadow:0 5px 0 rgba(0,0,0,.18);transition:transform .08s,box-shadow .08s}
+.row button:active{transform:translateY(4px);box-shadow:0 1px 0 rgba(0,0,0,.18)}
+.rx{margin-top:18px;background:var(--card);border:2px dashed var(--accent);border-radius:22px;padding:14px 16px;text-align:left;display:none}
+.rx.on{display:block}
+.rx b{color:var(--accent)}
+.heart{position:fixed;pointer-events:none;font-size:1.6rem;animation:fly 1.4s ease-out forwards;z-index:9}
+@keyframes fly{to{transform:translateY(-160px) rotate(var(--r));opacity:0}}
+button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){#bear.pop,.heart{animation:none}}
+</style>
+</head>
+<body>
+<main>
+  <h1>Держись)</h1>
+  <section class="stage">
+    <div class="bubble" id="say">Мяу!Погладь меня 🐾</div>
+    <button id="bear" aria-label="Потыкать кошку"><img id="pic" src="cat.png" alt="" style="display:none;max-width:170px;max-height:170px;margin:0 auto" onload="this.style.display='block';this.nextElementSibling.style.display='none'"><svg viewBox="0 0 160 150" width="150" height="140" aria-hidden="true" style="display:block;margin:0 auto"><ellipse cx="80" cy="128" rx="46" ry="20" fill="#fff" stroke="#d9c4cc" stroke-width="3"/><polygon points="34,58 32,14 66,40" fill="#fff" stroke="#d9c4cc" stroke-width="3" stroke-linejoin="round"/><polygon points="126,58 128,14 94,40" fill="#fff" stroke="#d9c4cc" stroke-width="3" stroke-linejoin="round"/><polygon points="40,50 39,26 56,40" fill="#ffc2d1"/><polygon points="120,50 121,26 104,40" fill="#ffc2d1"/><ellipse cx="80" cy="82" rx="52" ry="44" fill="#fff" stroke="#d9c4cc" stroke-width="3"/><ellipse cx="60" cy="80" rx="8" ry="10" fill="#4a8fd6"/><ellipse cx="100" cy="80" rx="8" ry="10" fill="#4a8fd6"/><ellipse cx="60" cy="81" rx="4" ry="6" fill="#2b2440"/><ellipse cx="100" cy="81" rx="4" ry="6" fill="#2b2440"/><circle cx="57" cy="76" r="2.5" fill="#fff"/><circle cx="97" cy="76" r="2.5" fill="#fff"/><circle cx="44" cy="98" r="8" fill="#ffc2d1" opacity=".7"/><circle cx="116" cy="98" r="8" fill="#ffc2d1" opacity=".7"/><path d="M75 94h10l-5 6z" fill="#ff8aa8"/><path d="M80 100q-6 8-13 4M80 100q6 8 13 4" fill="none" stroke="#9b6b7b" stroke-width="2.5" stroke-linecap="round"/><path d="M30 92l-16-3M30 100l-16 4M130 92l16-3M130 100l16 4" stroke="#c9b3bd" stroke-width="2" stroke-linecap="round"/><path d="M124 36l-14-8v16zM124 36l14-8v16z" fill="#e85d84"/><circle cx="124" cy="36" r="4" fill="#ff8aa8"/></svg></button>
+    <p class="count">Тычков: <span id="n">0</span></p>
+    <div class="row">
+      <button id="hug">Обнимашки 🤗</button>
+      <button id="pill">Рецепт 💊</button>
+    </div>
+    <div class="rx" id="rx"></div>
+  </section>
+</main>
+<script>
+var say=document.getElementById('say'),bear=document.getElementById('bear'),n=document.getElementById('n'),rx=document.getElementById('rx'),c=0;
+var talk=['Ты самая лучшая студентка на этой паре. И на соседней тоже.','Ай! Щекотно 😆','Преподаватель что-то говорит, а ты делаешь вид, что записываешь. Уважаю.','Ты милая даже с красным носиком.','Тык-тык! Ещё разочек?','Я передал соплям, что им пора уходить.','Скоро перемена. Держись, осталось совсем чуть-чуть.','Тебе пишет самый лучший человек. Это не я, но почти.','Ты чудо. Это официально и без вариантов.','Кошка запросила у вселенной выздоровление для тебя 🌟'];
+var recipes=['Чай с лимоном и медом, три раза в день. Можно и больше.','Одно кино под пледом. Принимать вечером, без спешки.','Много сна и ноль мыслей про учёбу. Особенно после пар.','Сто граммов обнимашек от меня. Доставка по запросу.','Шоколадка по настроению. Побочный эффект: улыбка.','Закутаться в плед и ничего не делать. Строго по рецепту.'];
+function heart(x,y){var h=document.createElement('div');h.className='heart';h.textContent=['💖','💗','💕','🌸','✨'][Math.floor(Math.random()*5)];h.style.left=(x-14)+'px';h.style.top=(y-14)+'px';h.style.setProperty('--r',(Math.random()*60-30)+'deg');document.body.appendChild(h);setTimeout(function(){h.remove()},1400)}
+function poke(e){c++;n.textContent=c;say.textContent=talk[Math.floor(Math.random()*talk.length)];bear.classList.remove('pop');void bear.offsetWidth;bear.classList.add('pop');var r=bear.getBoundingClientRect();heart(r.left+r.width/2+(Math.random()*80-40),r.top+20);
+if(c===10){say.textContent='10 тычков! Ты официально победила скуку 🏆'}
+if(c===25){say.textContent='25! Тебя пора выписывать, но я бы ещё потыкал 😄'}}
+bear.addEventListener('click',poke);
+document.getElementById('hug').addEventListener('click',function(){say.textContent='Обнимаю крепко-крепко 🤗 Считай, что я рядом.';for(var i=0;i<8;i++){(function(i){setTimeout(function(){heart(window.innerWidth/2+(Math.random()*200-100),window.innerHeight*0.6)},i*90)})(i)}});
+document.getElementById('pill').addEventListener('click',function(){rx.className='rx on';rx.innerHTML='<b>Рецепт:</b> '+recipes[Math.floor(Math.random()*recipes.length)]});
+</script>
+</body>
+</html>
